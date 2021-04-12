@@ -1,0 +1,20 @@
+<div class="list-section">
+  <div *ngIf="postList && postList.length" class="post-list">
+    <div *ngFor="let post of postList" class="post-item">
+      <div class="up-down-vote">
+        <a (click)="upVote(post)" class="icon">&#9650;</a>
+        <span [class.red]="post.votes < 0" [class.green]="post.votes > 0">
+          {{ post.votes }}
+        </span>
+        <a (click)="downVote(post)" class="icon">&#9660;</a>
+      </div>
+      <div class="post-content">
+        <h2>{{ post.title }}</h2>
+        <a href="post.url" target="_blank">{{ post.url }}</a>
+      </div>
+      <div class="delete">
+        <span (click)="deletePost(post)" class="icon">&#10006;</span>
+      </div>
+    </div>
+  </div>
+</div>
