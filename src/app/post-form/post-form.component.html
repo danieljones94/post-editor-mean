@@ -1,0 +1,27 @@
+<div class="top-section">
+  <div class="inputs-container">
+    <form (submit)="addPost(post)" #postForm="ngForm">
+      <div>
+        <input
+          type="text"
+          name="title"
+          [(ngModel)]="post.title"
+          placeholder="Title"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="url"
+          name="link"
+          [(ngModel)]="post.url"
+          placeholder="Link"
+          required
+        />
+      </div>
+      <div>
+        <button type="submit" [disabled]="!postForm.valid">Post!</button>
+      </div>
+    </form>
+  </div>
+</div>

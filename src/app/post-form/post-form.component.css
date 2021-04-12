@@ -1,0 +1,63 @@
+.top-section {
+  padding: 50px;
+  display: block;
+  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+}
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.inputs-container input {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #dbdbdb;
+}
+.inputs-container button {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0;
+  margin-bottom: 5px;
+  border: 1px solid #ffad41;
+  border-radius: 3px;
+  font-family: arial, helvetica, sans-serif;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ffc579;
+  background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+}
+
+.inputs-container button:hover {
+  border: 1px solid #ff9913;
+  background-color: #ffaf46;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffaf46),
+    to(#e78404)
+  );
+  background-image: linear-gradient(to bottom, #ffaf46, #e78404);
+}
+.inputs-container button:disabled {
+  background: #d49645;
+}
+
+@media only screen and (max-width: 1000px) {
+  .top-section {
+    padding: 50px 14px;
+  }
+}
