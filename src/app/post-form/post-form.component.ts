@@ -13,7 +13,6 @@ export class PostFormComponent {
   };
 
   constructor(public myPostListService: PostListService) {}
-  @Output() clicked = new EventEmitter();
   addPost(data) {
     this.myPostListService.tiggerPostList(data);
   }
