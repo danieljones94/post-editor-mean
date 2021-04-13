@@ -8,13 +8,13 @@ import { PostListService } from '../addToPostList.service';
 })
 export class PostListComponent {
   postList;
-  post = { title: '', url: '', votes: 0 };
+  post: any = { title: '', url: '', votes: 0 };
   constructor(public myPostListService: PostListService) {
     this.postList = [
       {
         _id: 1,
         title: 'The First Post Title',
-        url: 'http://google.co.in/',
+        url: 'http://google.co.uk/',
         votes: 85,
       },
       {
@@ -42,13 +42,30 @@ export class PostListComponent {
         this.postList.push(this.post);
       }
     });
+    this.sortPosts(this.postList);
   }
 
-  downVote(post) {
-    console.log('Post downvoted');
+  downVote(post: any) {
+    let selectedPost = this.postList.find((item) => post._id === item._id);
+    selectedPost.votes = selectedPost.votes - 1;
+    this.sortPosts(this.postList);
   }
 
-  upVote(post) {
-    console.log('Post has beeen upvoted');
+  upVote(post: any) {
+    let selectedPost = this.postList.find((item) => post._id === item._id);
+    selectedPost.votes = selectedPost.votes + 1;
+    this.sortPosts(this.postList);
+  }
+
+  deletePost(post: any) {
+    this.postList.forEach((item, index) => {
+      if (item._id == post._id) {
+        this.postList.splice(index, 1);
+      }
+    });
+  }
+
+  sortPosts(postList) {
+    return postList.sort((a, b) => (a.votes < b.votes ? 1 : -1));
   }
 }
