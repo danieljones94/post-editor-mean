@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PostListService } from '../addToPostList.service';
+import { PostsService } from '../posts.service';
+import { Post } from '../post.interface';
 
 @Component({
   selector: 'app-post-form',
@@ -12,8 +14,17 @@ export class PostFormComponent {
     url: '',
   };
 
-  constructor(public myPostListService: PostListService) {}
-  addPost(data) {
-    this.myPostListService.tiggerPostList(data);
+  constructor(
+    private myPostListService: PostListService,
+    private postsService: PostsService
+  ) {}
+  addPost(post) {
+    const newPost = {
+      title: post.title,
+      url: post.url,
+    };
+    this.postsService.createPost(newPost).subscribe((data: Post) => {
+      this.myPostListService.tiggerPostList(data);
+    });
   }
 }
